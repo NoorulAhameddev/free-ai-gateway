@@ -34,7 +34,7 @@ def main():
         port = getattr(args, "port", 4097)
         host = getattr(args, "host", "127.0.0.1")
         print("=" * 60)
-        print("  ⚡ Free AI Gateway — OpenAI Compatible Proxy")
+        print("  Free AI Gateway - OpenAI Compatible Proxy")
         print(f"  Base URL:  http://{host}:{port}/v1")
         print("  Models:    deepseek-v4.1-flash-free, nemotron-3.5-super-vl-free")
         print("  Cost:      $0.00 / Zero API Keys Required")

@@ -49,6 +49,9 @@ AVAILABLE_MODELS = [
     ModelCard(id="nemotron-3.5-super-vl-free"),
     ModelCard(id="opencode/free"),
     ModelCard(id="gpt-4o"),  # Alias for third-party libraries hardcoding gpt-4o
+    ModelCard(id="claude-3-5-sonnet-20241022"),
+    ModelCard(id="claude-sonnet-4-6"),
+    ModelCard(id="claude-3-7-sonnet"),
 ]
 
 
@@ -69,7 +72,11 @@ async def create_chat_completion(req: ChatCompletionRequest):
 
     # Map model aliases
     target_model = req.model
-    if target_model in ("gpt-4o", "opencode/free", "default"):
+    if (
+        target_model in ("gpt-4o", "opencode/free", "default")
+        or "claude" in target_model.lower()
+        or target_model not in ("deepseek-v4.1-flash-free", "nemotron-3.5-super-vl-free")
+    ):
         target_model = "deepseek-v4.1-flash-free"
 
     # Convert OpenAI messages to free_ai format
